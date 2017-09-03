@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+
+<!-- simple html sample -->
+<html>
+    <head>
+        <title>Page Title</title>
+        <style>
+			body {margin: 0px auto; text-align: center; padding: 10px}
+			table, th, td {
+			    border: 1px solid #ccc;
+			    border-collapse: collapse;
+			}
+			form{
+				margin: 0 auto;
+				text-align: left;
+			}
+			hr{
+				margin: 0;
+			}
+
+			p{
+				margin: 5px;
+			}
+			.col1{
+				width: 11.66666667%;
+				float: left;
+			}
+
+
+			.offset{
+				margin-left: 11.66666667%;
+			}
+
+			#hidden{
+				visibility: hidden;
+			}
+
+			.clickable{
+				color: -webkit-link;
+			    text-decoration: underline;
+			    cursor: pointer;
+			}
+
+			#post_data,#album_data{
+				display: none;
+			}
+		</style>
+    </head>
+    <body >
+
+        <img src="https://graph.facebook.com/v2.8/1442716239093910/picture?&access_token=EAASJNy1CUuwBAPGKimMdyKxvliZAAJE0LmXFqOlzAJY928sGFsqvX7Fy5LiIZCQGw7mOOsbErCeGcfadmGsdk88i7iFgKM5cnjVsFghvZCeLhfNZA2F1B0ItVGvoiN4yYzLSmUEhw5RqCkZAbAizwjFRlYcd3C38ZD">
+
+
+        <div  style="margin: 0px auto 0px auto; padding: 10px; width: 100%">
+        <div style="background-color: #e9ebee;width: 50%;margin: 5px auto 20px auto; padding: 5px 10px 5px 10px">
+
+        	<p><i>Facebook Search</i></p>
+        	<hr>
+
+	        <form action="" method="get" id="myform">
+	        	<div>
+			   	<label class="col1">Keyword</label> <input type="text" name="" required>
+			   	</div>
+			 	 <div>
+			  	<label class="col1">Type:</label>
+			  	<!-- <input type="text" name="lastname" value="Mouse"> -->
+			 	<select id="type" onchange="showLocation();">
+					<option value="user">Users</option>
+					<option value="page">Pages</option>
+					<option value="event">Events</option>
+				  	<option value="group">Groups</option>
+				  	<option value="palce">Places</option>
+				</select>
+			 	
+			 	</div>
+			 	<div id="hidden">
+				<label class="col1">Location </label><input type="text" name="location" >
+				<label> Distance(Meters) </label><input type="text" name="distance" >
+				</div>
+
+			  	<input class="offset" type="submit" value="Submit">
+			  	<input class="offset" type="button" value="Clear" onclick="Myreset()">
+
+			  	<br><br>
+			</form>
+			
+
+			  
+
+        </div>
+
+
+
+        <div style="margin: 30px auto;">
+		<table style="width: 60%; text-align: left;margin: 0px auto;">
+			<tbody>
+				<tr style="background-color: #e9ebee;">
+					<th>Profile Photo</th>
+					<th>Name</th>
+					<th>Details</th>
+														
+				</tr>
+
+			</tbody>
+		</table>
+		</div>
+    
+		<div style="margin: 30px auto;">
+
+		<div style="width: 60%; text-align: center;margin: 0px auto; background-color: #e9ebee;">
+		<p onclick="dispalyAlbum()" class="clickable" id="album"> Albums </p>
+		</div>
+
+		<table style="width: 60%; text-align: left;margin: 0px auto;" id='album_data'>
+			<tbody>
+				<tr>
+					<td>Massage</td>					
+				</tr>
+			</tbody>
+		</table>
+
+		<div style="width: 60%; text-align: center;margin: 0px auto;background-color: #e9ebee;">
+		<p onclick="dispalyPost()" class="clickable" id="post"> Posts </p>
+		</div>
+
+		<table style="width: 60%; text-align: left;margin: 0px auto;" id='post_data'>
+			<tbody>
+				<tr style="background-color: #e9ebee;">
+					<th></th>					
+				</tr>
+			</tbody>
+		</table>
+
+		</div>
+
+
+<script type="text/javascript"> 
+       function showLocation(){ 
+	        var objS = document.getElementById("type"); 
+	        var select = objS.options[objS.selectedIndex].value; 
+	        if(select=="palce")
+	        	document.getElementById("hidden").style="visibility: visible;";
+	        else 
+	        	document.getElementById("hidden").style="visibility: hidden;";
+       } 
+
+       function Myreset(){      		
+       		x = document.getElementById("myform").reset();
+       		document.getElementById("hidden").style="visibility: hidden;";
+       }
+
+       function dispalyAlbum(id){
+       		document.getElementById("album_data").style.display="table";
+       		document.getElementById("post_data").style.display="none";
+       }
+
+
+</script> 
+	
+		
+		</div>
+	</body>
+</html>
